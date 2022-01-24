@@ -1,0 +1,82 @@
+.header-font
+{
+    font-size: 2rem;
+}
+
+.header-col
+{
+    width: 50%;
+    max-width: 50%;
+}
+
+.justify-content-center
+{
+    justify-content: center;
+}
+
+.flex 
+{
+    display: flex;
+}
+
+.grid
+{
+    display: grid;
+}
+
+.background-black
+{
+    background-color: black;
+}
+
+.inline-flex
+{   
+    display: inline-flex;
+}
+
+.body-font
+{
+    font-size: 6rem;
+}
+
+button
+{
+    outline: none;
+    text-decoration: none;
+    background-color: blueviolet;
+}
+
+.header-button
+{
+    background-color: inherit;
+}
+
+.text-align-center
+{
+    text-align: center;
+}
+
+input
+{
+    color: black;
+}
+
+.full-height
+{
+    height:100vh;
+}
+
+.row
+{
+    display: table;
+}
+
+.col
+{
+    max-width: 50%;
+}
+
+.none
+{
+    display: none;
+}
