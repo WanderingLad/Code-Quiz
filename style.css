@@ -39,6 +39,11 @@
     font-size: 6rem;
 }
 
+.question-font
+{
+    font-size: 4rem;
+}
+
 button
 {
     outline: none;

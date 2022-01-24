@@ -1,11 +1,14 @@
+//#region Variable creation
+
 var timer = document.querySelector("#timer");
 var startGameButton = document.querySelector("#startGame");
 var viewHighscore = document.querySelector("#viewHighscore");
 
-var answerOne = document.querySelector("#answer-one");
-var answerTwo = document.querySelector("#answer-two");
-var answerThree = document.querySelector("#answer-three");
-var answerFour = document.querySelector("#answer-four");
+var theQuestion = document.querySelector("#theQuestion");
+var answerOne = document.querySelector("#answerOne");
+var answerTwo = document.querySelector("#answerTwo");
+var answerThree = document.querySelector("#answerThree");
+var answerFour = document.querySelector("#answerFour");
 
 var showStart = document.querySelector("#startSection");
 var showQuestions = document.querySelector("#questionSection");
@@ -29,33 +32,127 @@ var correctAnswer = "";
 
 var quizFinished = false;
 
+//#region Question Creation
+
 var firstQuestion = 
 {
-    firstAnswer: "one",
-    secondAnswer: "two",
-    thirdAnswer: "three",
-    fourthAnswer: "four",
-    answer: answerOne
+    quesiton: "Which of the following is correct about features of JavaScript?",
+    firstAnswer: "JavaScript is is complementary to and integrated with HTML.",
+    secondAnswer: "JavaScript is open and cross-platform.",
+    thirdAnswer: "Both of the above.",
+    fourthAnswer: "All of the above.",
+    answer: answerThree
 };
 
 var secondQuestion = 
 {
-    firstAnswer: "oneone",
-    secondAnswer: "twotwo",
-    thirdAnswer: "threethree",
-    fourthAnswer: "fourfour",
+    quesiton: "Which of the following is a valid type of function javascript supports?",
+    firstAnswer: "Named Function",
+    secondAnswer: "Anonymous Function",
+    thirdAnswer: "Both of the above",
+    fourthAnswer: "None of the above",
     answer: answerThree
 };
 
-var questions = [firstQuestion, secondQuestion];
+var thirdQuestion = 
+{
+    quesiton: "Which built-in method combines the text of two strings and returns a new string?",
+    firstAnswer: "append()",
+    secondAnswer: "concat()",
+    thirdAnswer: "attach()",
+    fourthAnswer: "None of the above.",
+    answer: answerTwo
+};
+
+var fourthQuestion = 
+{
+    quesiton: "Which of the following function of Number object forces a number to display in exponential notation?",
+    firstAnswer: "toExponential()",
+    secondAnswer: "toFixed()",
+    thirdAnswer: "toPrecision()",
+    fourthAnswer: "toLocaleString()",
+    answer: answerOne
+};
+
+var fifthQuestion = 
+{
+    quesiton: "Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?",
+    firstAnswer: "charAt()",
+    secondAnswer: "charCodeAt()",
+    thirdAnswer: "concat()",
+    fourthAnswer: "indexOf",
+    answer: answerTwo
+};
+
+var sixthQuestion = 
+{
+    quesiton: "Which of the following function of String object extracts a section of a string and returns a new string?",
+    firstAnswer: "slice()",
+    secondAnswer: "split()",
+    thirdAnswer: "replace()",
+    fourthAnswer: "search",
+    answer: answerOne
+};
+
+var seventhQuestion = 
+{
+    quesiton: "Which of the following function of String object returns a string representing the specified object?",
+    firstAnswer: "toLocaleUpperCase()",
+    secondAnswer: "toUpperCase()",
+    thirdAnswer: "toString()",
+    fourthAnswer: "substring()",
+    answer: answerThree
+};
+
+var eigthQuestion = 
+{
+    quesiton: "Which of the following function of String object causes a string to be displayed in the specified color as if it were in a <font color='color'> tag?",
+    firstAnswer: "fixed()",
+    secondAnswer: "fontcolor()",
+    thirdAnswer: "blink()",
+    fourthAnswer: "bold()",
+    answer: answerTwo
+};
+
+var ninthQuestion = 
+{
+    quesiton: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
+    firstAnswer: "push()",
+    secondAnswer: "join()",
+    thirdAnswer: "pop()",
+    fourthAnswer: "map()",
+    answer: answerFour
+};
+
+var tenthQuestion = 
+{
+    quesiton: "Which of the following function of Array object adds one or more elements to the front of an array and returns the new length of the array?",
+    firstAnswer: "unshift()",
+    secondAnswer: "sort",
+    thirdAnswer: "splice",
+    fourthAnswer: "toString()",
+    answer: answerOne
+};
+
+//#endregion
+
+var questions = [firstQuestion, secondQuestion, thirdQuestion, fourthQuestion, fifthQuestion, sixthQuestion, seventhQuestion, eigthQuestion, ninthQuestion, tenthQuestion];
 
 var highscores = [];
+
+//#endregion
+
+//#region Base Site Setup
 
 UpdateTimerText(0);
 
 UpdateButtonText();
 
 GetHighscores();
+
+//#endregion
+
+//#region Button OnClick Events
 
 startGameButton.addEventListener("click", function(){
 
@@ -93,6 +190,10 @@ highscoreForm.addEventListener("submit", HighscoreSubmit)
 reset.addEventListener("click", ResetLocal)
 
 restart.addEventListener("click", RestartGame);
+
+//#endregion
+
+//#region Functions
 
 function GetHighscores()
 {
@@ -231,6 +332,7 @@ function TimerCountdown()
 
 function UpdateButtonText()
 {
+    theQuestion.textContent = questions[questionNumber].quesiton;
     answerOne.innerHTML = questions[questionNumber].firstAnswer;
     answerTwo.innerHTML = questions[questionNumber].secondAnswer;
     answerThree.innerHTML = questions[questionNumber].thirdAnswer;
@@ -243,3 +345,5 @@ function UpdateTimerText(subtractTime)
     timerCountdown = timerCountdown - subtractTime;
     timer.textContent = timerCountdown;
 };
+
+//#endregion
