@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-        <div class="background-black flex">
+        <div class="background-black flex padding-top-bottom">
             <button id="viewHighscore" class="header-font header-col inline-flex justify-content-center header-button">View High Score</button>
             <div class="header-font header-col inline-flex justify-content-center">Time Left: 
                 <p id="timer" class="header-font">0</p>
@@ -18,35 +18,39 @@
     </header>
 
     <main class="background-black full-height">
-      <section id="startSection" class="background-black flex justify-content-center">
-       <button id="startGame" class="body-font">Click Me Damn It</button>
+      <section id="startSection" class="background-black grid justify-content-center">
+        <p class="question-font text-align-center margin-top-bottom">
+          Welcome to a Javascript quiz. You will have 60 seconds to answer 10 questions about Javascript. Your remaining time will be your final score, good luck!
+        </p>
+        <button id="startGame" class="body-font margin-top-bottom padding-top-bottom">Begin Quiz</button>
       </section>
 
       <section id="questionSection" class="background-black grid justify-content-center none">
-        <p id="theQuestion" class="question-font inline-flex">Here is the question</p>
-        <button id="answerOne" class="question-font inline-flex justify-content-center">Answer One</button>
-        <button id="answerTwo" class="question-font inline-flex justify-content-center">Answer Two</button>
-        <button id="answerThree" class="question-font inline-flex justify-content-center">Answer Three</button>
-        <button id="answerFour" class="question-font inline-flex justify-content-center">Answer Four</button>
-       </section>
+        <p id="theQuestion" class="question-font inline-flex margin-top-bottom">Here is the question</p>
+        <button id="answerOne" class="question-font inline-flex justify-content-center margin-top-bottom padding-top-bottom">Answer One</button>
+        <button id="answerTwo" class="question-font inline-flex justify-content-center margin-top-bottom padding-top-bottom">Answer Two</button>
+        <button id="answerThree" class="question-font inline-flex justify-content-center margin-top-bottom padding-top-bottom">Answer Three</button>
+        <button id="answerFour" class="question-font inline-flex justify-content-center margin-top-bottom padding-top-bottom">Answer Four</button>
+        <p id="correctness" class="question-font inline-flex justify-content-center margin-top-bottom" ></p>
+      </section>
 
-       <section id="formSection" class="none">
+      <section id="formSection" class="none">
         <form id="highscore" class="grid justify-content-center">
-          <label for="highscoreName" class="body-font text-align-center">Enter your name</label>
-          <input type="text" id="highscoreName" name="highscoreName" class="body-font">
-          <button class="body-font">Submit</button>
+          <label for="highscoreName" class="body-font text-align-center margin-top-bottom">Enter your name</label>
+          <input type="text" id="highscoreName" name="highscoreName" class="body-font margin-top-bottom">
+          <button class="body-font margin-top-bottom padding-top-bottom margin-left-right padding-left-right">Submit</button>
         </form>
-       </section>
+      </section>
 
-       <section id="highscoreSection" class="background-black justify-content-center none">
+      <section id="highscoreSection" class="background-black justify-content-center none">
         <ul id="highscoreList" class="text-align-center">
 
         </ul>
-        <div class="flex justify-content-center">
-          <button id="resetButton" class="body-font col">Reset</button>
-          <button id="restartButton" class="body-font col">Restart</button>
+        <div class="flex justify-content-center margin-top-bottom">
+          <button id="resetButton" class="body-font col margin-top-bottom padding-top-bottom margin-left-right padding-left-right">Reset</button>
+          <button id="restartButton" class="body-font col padding-top-bottom margin-left-right padding-left-right">Restart</button>
         </div>  
-       </section>
+      </section>
 
     </main>
     <script src="script.js"></script>

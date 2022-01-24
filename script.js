@@ -9,6 +9,7 @@ var answerOne = document.querySelector("#answerOne");
 var answerTwo = document.querySelector("#answerTwo");
 var answerThree = document.querySelector("#answerThree");
 var answerFour = document.querySelector("#answerFour");
+var correctness = document.querySelector("#correctness");
 
 var showStart = document.querySelector("#startSection");
 var showQuestions = document.querySelector("#questionSection");
@@ -22,7 +23,7 @@ var highscoreList = document.querySelector("#highscoreList");
 var reset = document.querySelector("#resetButton");
 var restart = document.querySelector("#restartButton");
 
-var timerCountdown = 10;
+var timerCountdown = 60;
 
 var countdown;
 
@@ -36,7 +37,7 @@ var quizFinished = false;
 
 var firstQuestion = 
 {
-    quesiton: "Which of the following is correct about features of JavaScript?",
+    question: "Which of the following is correct about features of JavaScript?",
     firstAnswer: "JavaScript is is complementary to and integrated with HTML.",
     secondAnswer: "JavaScript is open and cross-platform.",
     thirdAnswer: "Both of the above.",
@@ -46,7 +47,7 @@ var firstQuestion =
 
 var secondQuestion = 
 {
-    quesiton: "Which of the following is a valid type of function javascript supports?",
+    question: "Which of the following is a valid type of function javascript supports?",
     firstAnswer: "Named Function",
     secondAnswer: "Anonymous Function",
     thirdAnswer: "Both of the above",
@@ -56,7 +57,7 @@ var secondQuestion =
 
 var thirdQuestion = 
 {
-    quesiton: "Which built-in method combines the text of two strings and returns a new string?",
+    question: "Which built-in method combines the text of two strings and returns a new string?",
     firstAnswer: "append()",
     secondAnswer: "concat()",
     thirdAnswer: "attach()",
@@ -66,7 +67,7 @@ var thirdQuestion =
 
 var fourthQuestion = 
 {
-    quesiton: "Which of the following function of Number object forces a number to display in exponential notation?",
+    question: "Which of the following function of Number object forces a number to display in exponential notation?",
     firstAnswer: "toExponential()",
     secondAnswer: "toFixed()",
     thirdAnswer: "toPrecision()",
@@ -76,7 +77,7 @@ var fourthQuestion =
 
 var fifthQuestion = 
 {
-    quesiton: "Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?",
+    question: "Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?",
     firstAnswer: "charAt()",
     secondAnswer: "charCodeAt()",
     thirdAnswer: "concat()",
@@ -86,7 +87,7 @@ var fifthQuestion =
 
 var sixthQuestion = 
 {
-    quesiton: "Which of the following function of String object extracts a section of a string and returns a new string?",
+    question: "Which of the following function of String object extracts a section of a string and returns a new string?",
     firstAnswer: "slice()",
     secondAnswer: "split()",
     thirdAnswer: "replace()",
@@ -96,7 +97,7 @@ var sixthQuestion =
 
 var seventhQuestion = 
 {
-    quesiton: "Which of the following function of String object returns a string representing the specified object?",
+    question: "Which of the following function of String object returns a string representing the specified object?",
     firstAnswer: "toLocaleUpperCase()",
     secondAnswer: "toUpperCase()",
     thirdAnswer: "toString()",
@@ -106,7 +107,7 @@ var seventhQuestion =
 
 var eigthQuestion = 
 {
-    quesiton: "Which of the following function of String object causes a string to be displayed in the specified color as if it were in a <font color='color'> tag?",
+    question: "Which of the following function of String object causes a string to be displayed in the specified color as if it were in a <font color='color'> tag?",
     firstAnswer: "fixed()",
     secondAnswer: "fontcolor()",
     thirdAnswer: "blink()",
@@ -116,7 +117,7 @@ var eigthQuestion =
 
 var ninthQuestion = 
 {
-    quesiton: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
+    question: "Which of the following function of Array object creates a new array with the results of calling a provided function on every element in this array?",
     firstAnswer: "push()",
     secondAnswer: "join()",
     thirdAnswer: "pop()",
@@ -126,7 +127,7 @@ var ninthQuestion =
 
 var tenthQuestion = 
 {
-    quesiton: "Which of the following function of Array object adds one or more elements to the front of an array and returns the new length of the array?",
+    question: "Which of the following function of Array object adds one or more elements to the front of an array and returns the new length of the array?",
     firstAnswer: "unshift()",
     secondAnswer: "sort",
     thirdAnswer: "splice",
@@ -245,6 +246,7 @@ function CheckAnswer(passedButton)
         }
         else
         {
+            correctness.textContent = "Correct!";
             questionNumber++;
             UpdateButtonText();
         }
@@ -255,6 +257,8 @@ function CheckAnswer(passedButton)
         if(timerCountdown - 2 >= 0)
         {
             UpdateTimerText(2);
+
+            correctness.textContent = "Incorrect!";
         }
         else
         {
@@ -287,7 +291,7 @@ function RestartGame(event)
 {
     event.preventDefault();
     
-    timerCountdown = 10;
+    timerCountdown = 60;
 
     questionNumber = 0;
 
@@ -332,7 +336,7 @@ function TimerCountdown()
 
 function UpdateButtonText()
 {
-    theQuestion.textContent = questions[questionNumber].quesiton;
+    theQuestion.textContent = questions[questionNumber].question;
     answerOne.innerHTML = questions[questionNumber].firstAnswer;
     answerTwo.innerHTML = questions[questionNumber].secondAnswer;
     answerThree.innerHTML = questions[questionNumber].thirdAnswer;

@@ -85,3 +85,23 @@ input
 {
     display: none;
 }
+
+.margin-top-bottom
+{
+    margin: 1rem 0;
+}
+
+.padding-top-bottom
+{
+    padding: 1rem 0;
+}
+
+.margin-left-right
+{
+    margin: 0 1rem;
+}
+
+.padding-top-bottom
+{
+    padding: 0 1rem;
+}
